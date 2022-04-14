@@ -84,17 +84,22 @@ server {
 - 在 `pushdeer` 客户端发送请求
 - 服务端的 `db` 里的 `push_deer_devices` 表的 `device_id` 字段就是 deviceToken 了
 
-4. 启动 gorush 服务
+4. 测试1
+- 启动 gorush 服务
 ```bash
 gorush -c ios.yml
 ```
-
-5. 测试
+- 测试
 ```bash
 curl -X POST \
     -H 'Content-Type: application/json' \
     -d '{"notifications":[{"tokens":["e5ca1e229c0cc80d88a*******83c2d8f8ce5b9b2ee4dbf3dd66e5"],"platform":1,"message":"111","topic":"com.pushdeer.self.ios","sound":{"volume":2}}]}'
     http://127.0.0.1:8888/api/push
+```
+
+5. 测试2
+```bash
+gorush -ios -m "aaa" -i `find c.p12`  -t 'A9C7BA4CD03C319579A07********CCD2633ACBD2C8E9C274D3A' --password '64wtMhU4mULj' --topic 'com.pushdeer.self.ios' --production
 ```
 
 >[查看更多](https://github.com/easychen/pushdeer)
