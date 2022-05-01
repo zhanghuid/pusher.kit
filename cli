@@ -1,0 +1,22 @@
+<?php
+
+use Huid\Pusher\Command\PusherCommand;
+use Hyperf\Nano\Factory\AppFactory;
+use Symfony\Component\Console\Application;
+
+require 'vendor/autoload.php';
+
+// init .env file values
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv->load();
+
+// init config function class
+$app = AppFactory::createBase();
+$app->config(Huid\Pusher\Support\load_config('config'));
+
+$app = new Application();
+$app->add(new PusherCommand());
+
+$app->setName('apns');
+$app->setVersion('0.0.1');
+$app->run();
