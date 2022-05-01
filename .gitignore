@@ -1,0 +1,5 @@
+/vendor/
+.idea
+.env
+.php-cs-fixer.cache
+debug.log

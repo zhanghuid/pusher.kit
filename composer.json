@@ -1,0 +1,35 @@
+{
+    "name": "huid/pusher.kit",
+    "description": "a simple pusher for ios,maybe android",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhanghuid",
+            "email": "iamhuide@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "hyperf/watcher": "^2.2",
+        "friendsofphp/php-cs-fixer": "^3.7"
+    },
+    "require": {
+        "huid/apns":"0.0.1",
+        "hyperf/nano": "^1.0",
+        "hyperf/db": "^2.2",
+        "symfony/console": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Huid\\Pusher\\": "src/"
+        },
+        "files": [
+            "src/Support/helpers.php"
+        ]
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix $1 --rules=@PSR2"
+    }
+}
